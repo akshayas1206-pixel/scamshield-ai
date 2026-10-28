@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScamShield AI | Message Safety Checker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-icon">🛡️</span><div><strong>ScamShield AI</strong><small>Digital safety assistant</small></div></div>
+      <nav><a class="active" href="#scanner">Message Scanner</a><a href="#url-checker">URL Checker</a><a href="#history">Scan History</a></nav>
+      <div class="sidebar-note"><strong>Stay alert.</strong><p>Pause, check, and verify before you trust a message.</p></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><span>PERSONAL SECURITY DASHBOARD</span><span class="status"><i></i> Local demo</span></header>
+      <section class="hero">
+        <div class="eyebrow">YOUR EVERYDAY SCAM CHECKER</div>
+        <h1>Think before<br><span>you trust.</span></h1>
+        <p>Check suspicious messages and links for common warning signs before taking action.</p>
+      </section>
+      <section class="stats">
+        <div class="stat-card"><span>MESSAGE CHECKS</span><strong id="checks">0</strong><small>In this session</small></div>
+        <div class="stat-card"><span>HIGH-RISK FLAGS</span><strong id="flags">0</strong><small>Based on simple rules</small></div>
+        <div class="stat-card"><span>PRIVACY</span><strong>Local</strong><small>Demo runs on your laptop</small></div>
+      </section>
+      <section class="panel" id="scanner">
+        <div class="section-heading"><div><span class="eyebrow">01 / MESSAGE SCANNER</span><h2>Check a suspicious message</h2></div><span class="pill">Text analysis</span></div>
+        <p class="muted">Paste an SMS, email, or chat message. Avoid including real passwords, OTPs, or private information.</p>
+        <textarea id="message" placeholder="Paste the suspicious message here..."></textarea>
+        <div class="actions"><button id="analyzeBtn" class="primary">Analyze message ↗</button><button id="exampleBtn" class="secondary">Try example</button><button id="clearBtn" class="secondary">Clear</button></div>
+        <div id="messageResult" class="result hidden" aria-live="polite"></div>
+      </section>
+      <section class="panel" id="url-checker">
+        <div class="section-heading"><div><span class="eyebrow">02 / URL CHECKER</span><h2>Review a suspicious link</h2></div><span class="pill">Pattern checks</span></div>
+        <p class="muted">This checks visible URL patterns only; it does not open or visit the link.</p>
+        <div class="url-row"><input id="urlInput" type="text" placeholder="https://example.com"><button id="urlBtn" class="primary">Check URL</button></div>
+        <div id="urlResult" class="result hidden" aria-live="polite"></div>
+      </section>
+      <section class="panel" id="history">
+        <div class="section-heading"><div><span class="eyebrow">03 / RECENT ACTIVITY</span><h2>Scan history</h2></div><button id="clearHistory" class="secondary">Clear history</button></div>
+        <div id="historyList" class="history-empty">Your recent checks will appear here during this session.</div>
+      </section>
+      <footer>ScamShield AI · Educational prototype. Results are not a guarantee of safety.</footer>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
